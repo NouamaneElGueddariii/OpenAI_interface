@@ -1,9 +1,9 @@
 import streamlit as st
+from apikey import opeanai_apikey
 import openai
 
 
-OPENAI_API_KEY ="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"
-openai.api_key =  OPENAI_API_KEY
+openai.api_key =  opeanai_apikey
 
 
 st.title("Liste von OpenAI-Modellen")
