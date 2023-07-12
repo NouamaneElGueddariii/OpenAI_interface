@@ -1,5 +1,4 @@
 import streamlit as st
-from apikey import opeanai_apikey
 import openai
 
 
