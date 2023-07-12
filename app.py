@@ -2,10 +2,11 @@ import streamlit as st
 import openai
 import json 
 import requests
-from apikey import HuggingFace_key, openai_key
-#openai.api_key =  st.secrets["opeanai_apikey"]
+#from apikey import HuggingFace_key, openai_key
 
-openai.api_key = openai_key
+openai.api_key =  st.secrets["opeanai_apikey"]
+hugging_face_key  = st.secrets["hugging_face"]
+#openai.api_key = openai_key
 st.title("Liste von OpenAI-Modellen")
 
 openai_models = openai.Model.list().data
