@@ -5,9 +5,9 @@ import requests
 #from apikey import HuggingFace_key, openai_key
 
 openai.api_key =  st.secrets["opeanai_apikey"]
-hugging_face_key  = st.secrets["hugging_face"]
+hugging_face_key  = st.secrets["hugging_face_key"]
 #openai.api_key = openai_key
-st.title("Liste von OpenAI-Modellen")
+st.title("Liste von OpenAI/HuggingFace-Modellen")
 
 openai_models = openai.Model.list().data
 
@@ -21,7 +21,7 @@ framework_options = st.selectbox(
 if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
-    headers  = {"Authorization": f"Bearer {HuggingFace_key}"}
+    headers  = {"Authorization": f"Bearer {hugging_face_key}"}
     list_models  = ["bert-base-uncased"]
     model_options = st.selectbox(
                         'Select a model:',
