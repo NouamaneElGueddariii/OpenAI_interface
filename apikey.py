@@ -1,0 +1,2 @@
+HuggingFace_key ="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"
+openai_key = "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"
