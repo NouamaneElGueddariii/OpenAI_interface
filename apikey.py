@@ -1,1 +1,0 @@
-opeanai_apikey='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'

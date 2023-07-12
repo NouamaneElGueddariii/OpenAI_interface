@@ -3,7 +3,7 @@ from apikey import opeanai_apikey
 import openai
 
 
-openai.api_key =  opeanai_apikey
+openai.api_key =  st.secrets["opeanai_apikey"]
 
 
 st.title("Liste von OpenAI-Modellen")
