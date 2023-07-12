@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 
-OPENAI_API_KEY ="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"
+OPENAI_API_KEY ="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"
 openai.api_key =  OPENAI_API_KEY
 
 
