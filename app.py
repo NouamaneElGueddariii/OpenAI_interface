@@ -22,7 +22,7 @@ if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
     headers  = {"Authorization": f"Bearer {hugging_face_key}"}
-    list_models  = ["bert-base-uncased"]
+    list_models  = ["bert-base-uncased","gpt2"]
     model_options = st.selectbox(
                         'Select a model:',
                         (list_models)
