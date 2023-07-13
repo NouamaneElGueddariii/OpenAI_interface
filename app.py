@@ -2,7 +2,8 @@ import streamlit as st
 import openai
 import json 
 import requests
-#from apikey import HuggingFace_key, openai_key
+
+
 ## adding the tasks
 openai.api_key =  st.secrets["opeanai_apikey"]
 hugging_face_key  = st.secrets["hugging_face_key"]
@@ -21,6 +22,7 @@ framework_options = st.selectbox(
 if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
+    st.info("Hinweis: Für die Bert-Modelle muss das Wort [MASK] als Platzhalter verwendet werden, um Ergebnisse zu erhalten, zum Beispiel: Hallo, ich bin ein [MASK]-Modell.")
     headers  = {"Authorization": f"Bearer {hugging_face_key}"}
     list_models  = ["bert-base-uncased","gpt2","bert-base-multilingual-cased"]
     model_options = st.selectbox(
@@ -61,7 +63,7 @@ if framework_options == "OpenAI":
     #####
 
     input = st.text_input("Enter your prompt here!")
-    send = st.button('send request!')
+    send = st.button('SEND REQUEST!')
     if send: 
         response  = openai.ChatCompletion.create(
         model=model_options,
