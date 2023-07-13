@@ -64,7 +64,7 @@ if framework_options == "OpenAI":
                         )
     print(framework_options)
 
-    if re.search(r'\b(babbage)\b',model_options): 
+    if re.search(r'\b(text-babbage)\b',model_options): 
 
         st.write('Temperature:',model_options)
         temperature_option = st.selectbox(
@@ -73,7 +73,7 @@ if framework_options == "OpenAI":
         )
         st.write('Temperature:',temperature_option)
 
-        input = st.text_input("Enter your prompt here!")
+        input = st.text_feld("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
 
         if send: 
