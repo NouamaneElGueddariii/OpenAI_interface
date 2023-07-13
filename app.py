@@ -3,7 +3,7 @@ import openai
 import json 
 import requests
 #from apikey import HuggingFace_key, openai_key
-
+## adding the tasks
 openai.api_key =  st.secrets["opeanai_apikey"]
 hugging_face_key  = st.secrets["hugging_face_key"]
 #openai.api_key = openai_key
@@ -22,7 +22,7 @@ if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
     headers  = {"Authorization": f"Bearer {hugging_face_key}"}
-    list_models  = ["bert-base-uncased","gpt2"]
+    list_models  = ["bert-base-uncased","gpt2","bert-base-multilingual-cased"]
     model_options = st.selectbox(
                         'Select a model:',
                         (list_models)
@@ -31,7 +31,7 @@ if framework_options == "Hugging Face":
     API_URL = f"https://api-inference.huggingface.co/models/{model_options}"
     st.write('options:',model_options)
     input = st.text_input("Enter your prompt here!")
-    send = st.button('send request!')
+    send = st.button('SEND REQUEST!')
     if send: 
         def query(payload):
             data = json.dumps(payload)
@@ -74,7 +74,4 @@ if framework_options == "OpenAI":
         ]
         )
         st.write(response.choices[0].message.content)
-# print(response)
-
-# st.write(response)
 
