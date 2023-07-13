@@ -4,10 +4,18 @@ import json
 import requests
 import re
 
-## adding the tasks
+
+## adding the api keys
 openai.api_key =  st.secrets["opeanai_apikey"]
 hugging_face_key  = st.secrets["hugging_face_key"]
-#openai.api_key = openai_key
+
+
+def Huggingface_query():
+     pass
+
+def OpenAI_query():
+     pass
+
 st.title("Liste von OpenAI/HuggingFace-Modellen")
 st.info("Hinweis: Für die Bert-Modelle muss das Wort [MASK] als Platzhalter verwendet werden, um Ergebnisse zu erhalten. Zum Beispiel: Hallo, ich bin ein [MASK]-Modell.")
 
@@ -18,8 +26,9 @@ frameworks =['Hugging Face','OpenAI']
 
 framework_options = st.selectbox(
                         'Select a Framework:',
-                         (frameworks)
+                        (frameworks)
 )
+
 if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
@@ -56,29 +65,35 @@ if framework_options == "OpenAI":
 
     if re.search(r'\b(babbage)\b',model_options): 
         st.write('Temperature:',model_options)
-
-
-
-
-    #st.write('options:',model_options)
-    temperature_option = st.selectbox(
+        st.write('Temperature:',model_options)
+        temperature_option = st.selectbox(
                             'Select a temperature:',
                             (0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0)
-    )
-    st.write('Temperature:',temperature_option)
+        )
+
+    if re.search(r'\b(gpt)\b',model_options): 
+        st.write('Temperature:',model_options)
+        temperature_option = st.selectbox(
+                            'Select a temperature:',
+                            (0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0)
+        )
+        st.write('Temperature:',temperature_option)
         #####
 
-    input = st.text_input("Enter your prompt here!")
-    send = st.button('SEND REQUEST!')
-    if send: 
-            response  = openai.ChatCompletion.create(
-            model=model_options,
-            temperature= temperature_option,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant.You shoudl answer the question to the best of your capabilities"},
-                {"role": "user", "content": "you should answer the "},
-                #{"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-                {"role": "user", "content": input}
-            ]
-            )
-    st.write(response.choices[0].message.content)
+        input = st.text_input("Enter your prompt here!")
+        send = st.button('SEND REQUEST!')
+        if send: 
+                response  = openai.ChatCompletion.create(
+                model=model_options,
+                temperature= temperature_option,
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant.You shoudl answer the question to the best of your capabilities"},
+                    {"role": "user", "content": "you should answer the "},
+                    #{"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+                    {"role": "user", "content": input}
+                ]
+                )
+                st.write(response.choices[0].message.content)   
+
+    #st.write('options:',model_options)
+  
