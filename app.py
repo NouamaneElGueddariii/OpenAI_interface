@@ -64,7 +64,7 @@ if framework_options == "OpenAI":
                         )
     print(framework_options)
 
-    if re.search(r'\b(text-babbage)\b',model_options): 
+    if re.search(r'text-(babbage|davinci|curie|ada)',model_options): 
 
         st.write('Temperature:',model_options)
         temperature_option = st.selectbox(
@@ -81,7 +81,7 @@ if framework_options == "OpenAI":
                                 model=model_options,
                                 prompt= input
                                 )
-                st.write(response) 
+                st.write(response.choices[0].text) 
 
     if re.search(r'\b(gpt)\b',model_options): 
         st.write('Temperature:',model_options)
