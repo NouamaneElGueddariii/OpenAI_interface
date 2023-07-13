@@ -75,13 +75,13 @@ if framework_options == "OpenAI":
 
         input = st.text_input("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
-        
+
         if send: 
                 response = openai.Completion.create(
                                 model=model_options,
                                 prompt= input
                                 )
-                st.write(response.choices[0].message.content) 
+                st.write(response) 
 
     if re.search(r'\b(gpt)\b',model_options): 
         st.write('Temperature:',model_options)
