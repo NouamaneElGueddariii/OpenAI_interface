@@ -57,8 +57,9 @@ if framework_options == "OpenAI":
                         'Select a model:',
                         (list_models)
     )
-    if re.search(r'\b(babbage)\b',model_options): 
-        st.write('Temperature:',model_options)
+
+    # if re.search(r'\b(babbage)\b',model_options): 
+    #     st.write('Temperature:',model_options)
 
 
 
