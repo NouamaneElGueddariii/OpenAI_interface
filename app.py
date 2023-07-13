@@ -53,13 +53,9 @@ if framework_options == "OpenAI":
                         (list_models)
     )
     print(framework_options)
-    model_options = st.selectbox(
-                        'Select a model:',
-                        (list_models)
-    )
 
-    # if re.search(r'\b(babbage)\b',model_options): 
-    #     st.write('Temperature:',model_options)
+    if re.search(r'\b(babbage)\b',model_options): 
+        st.write('Temperature:',model_options)
 
 
 
