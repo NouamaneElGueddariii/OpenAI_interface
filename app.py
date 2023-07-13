@@ -57,18 +57,31 @@ if framework_options == "OpenAI":
     list_models  = []
     for model in openai_models: 
         list_models.append(model.id)
+
     model_options = st.selectbox(
                         'Select a model:',
                         (list_models)
-    )
+                        )
     print(framework_options)
 
     if re.search(r'\b(babbage)\b',model_options): 
+
         st.write('Temperature:',model_options)
         temperature_option = st.selectbox(
                             'Select a temperature:',
                             (0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0)
         )
+        st.write('Temperature:',temperature_option)
+
+        input = st.text_input("Enter your prompt here!")
+        send = st.button('SEND REQUEST!')
+        
+        if send: 
+                response = openai.Completion.create(
+                                model=model_options,
+                                prompt= input
+                                )
+                st.write(response.choices[0].message.content) 
 
     if re.search(r'\b(gpt)\b',model_options): 
         st.write('Temperature:',model_options)
