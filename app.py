@@ -9,6 +9,7 @@ openai.api_key =  st.secrets["opeanai_apikey"]
 hugging_face_key  = st.secrets["hugging_face_key"]
 #openai.api_key = openai_key
 st.title("Liste von OpenAI/HuggingFace-Modellen")
+st.info("Hinweis: Für die Bert-Modelle muss das Wort [MASK] als Platzhalter verwendet werden, um Ergebnisse zu erhalten, zum Beispiel: Hallo, ich bin ein [MASK]-Modell.")
 
 openai_models = openai.Model.list().data
 
@@ -22,7 +23,6 @@ framework_options = st.selectbox(
 if framework_options == "Hugging Face":
     #print(framework_options)
     ### hugging Face Part
-    st.info("Hinweis: Für die Bert-Modelle muss das Wort [MASK] als Platzhalter verwendet werden, um Ergebnisse zu erhalten, zum Beispiel: Hallo, ich bin ein [MASK]-Modell.")
     headers  = {"Authorization": f"Bearer {hugging_face_key}"}
     list_models  = ["bert-base-uncased","gpt2","bert-base-multilingual-cased"]
     model_options = st.selectbox(
