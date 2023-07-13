@@ -65,7 +65,6 @@ if framework_options == "OpenAI":
 
     if re.search(r'\b(babbage)\b',model_options): 
         st.write('Temperature:',model_options)
-        st.write('Temperature:',model_options)
         temperature_option = st.selectbox(
                             'Select a temperature:',
                             (0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0)
