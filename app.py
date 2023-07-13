@@ -81,7 +81,7 @@ if framework_options == "OpenAI":
                                 model=model_options,
                                 prompt= input
                                 )
-                st.write(response.choices[0].text) 
+                st.write(response.choices[0]) 
 
     if re.search(r'\b(gpt)\b',model_options): 
         st.write('Temperature:',model_options)
