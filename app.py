@@ -73,7 +73,7 @@ if framework_options == "OpenAI":
         )
         st.write('Temperature:',temperature_option)
 
-        input = st.text_area("Enter your prompt here!")
+        input = st.text_input("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
 
         if send: 
@@ -92,7 +92,7 @@ if framework_options == "OpenAI":
         st.write('Temperature:',temperature_option)
         #####
 
-        input = st.text_area("Enter your prompt here!")
+        input = st.text_input("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
         if send: 
                 response  = openai.ChatCompletion.create(
