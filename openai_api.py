@@ -2,9 +2,9 @@ import openai
 import streamlit as st
 import re 
 import tiktoken
-
-openai.api_key = st.secrets["openai_apikey"]
-#openai.api_key = opeanai_apikey
+from apikey import openai_key
+#openai.api_key = st.secrets["openai_apikey"]
+openai.api_key = openai_key
 
 def query(model_name, temperature, input_text):
     response = openai.ChatCompletion.create(
@@ -19,6 +19,9 @@ def query(model_name, temperature, input_text):
 
 def token_counter(model, prompt):
     pass
+def moderations():
+    pass
+
 
 def run():
     openai_models = openai.Model.list().data
@@ -33,7 +36,7 @@ def run():
         )
         st.write('Temperature:',temperature_option)
 
-        input = st.text_input("Enter your prompt here!")
+        input = st.text_area("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
         #token_counter = st.button('count tokens')
 
@@ -53,7 +56,7 @@ def run():
         st.write('Temperature:',temperature_option)
         #####
 
-        input = st.text_input("Enter your prompt here!")
+        input = st.text_area("Enter your prompt here!")
         send = st.button('SEND REQUEST!')
         if send: 
                 response  = openai.ChatCompletion.create(
