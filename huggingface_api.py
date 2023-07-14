@@ -2,8 +2,9 @@ import json
 import requests
 import streamlit as st
 from apikey import HuggingFace_key
-#hugging_face_key = st.secrets["hugging_face_key"]
-hugging_face_key = HuggingFace_key
+
+hugging_face_key = st.secrets["hugging_face_key"]
+#hugging_face_key = HuggingFace_key
 
 
 
