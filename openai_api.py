@@ -2,7 +2,6 @@ import openai
 import streamlit as st
 import re 
 import tiktoken
-from apikey import openai_key
 
 
 openai.api_key = st.secrets["openai_apikey"]
