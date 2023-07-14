@@ -10,8 +10,7 @@ openai.api_key =  st.secrets["opeanai_apikey"]
 hugging_face_key  = st.secrets["hugging_face_key"]
 
 
-def Huggingface_query():
-     pass
+
 
 def OpenAI_query():
      pass
