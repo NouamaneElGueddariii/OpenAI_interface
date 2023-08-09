@@ -7,10 +7,18 @@ from huggingface_hub  import InferenceClient
 
 
 def query(model_name, input_text):
+    gen_kwargs = dict(
+    max_new_tokens=512,
+    top_k=30,
+    top_p=0.9,
+    temperature=0.2,
+    repetition_penalty=1.02,
+    stop_sequences=["\nUser:", "<|endoftext|>", "</s>"],
+)
     if model_name == "Jukaboo/llama2-7b-jk-ft":
         endpoint_url =  "https://ceg49alq4qpkewtn.eu-west-1.aws.endpoints.huggingface.cloud"
         client = InferenceClient(endpoint_url , token=hugging_face_key) 
-        response = client.text_generation(input_text)
+        response = client.text_generation(input_text, **gen_kwargs)
         return response
 
     else :
