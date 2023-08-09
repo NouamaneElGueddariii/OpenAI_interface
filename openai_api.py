@@ -2,10 +2,9 @@ import openai
 import streamlit as st
 import re 
 import tiktoken
+from apikey  import api_key
 
-
-openai.api_key = st.secrets["openai_apikey"]
-#openai.api_key = openai_key
+openai.api_key = api_key
 
 def query(model_name, temperature, input_text):
     response = openai.ChatCompletion.create(

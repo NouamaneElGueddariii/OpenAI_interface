@@ -9,5 +9,8 @@ framework_options = st.selectbox('Select a Framework:', ('Hugging Face', 'OpenAI
 
 if framework_options == "Hugging Face":
     huggingface_api.run()
+
 elif framework_options == "OpenAI":
     openai_api.run()
+
+
