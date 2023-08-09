@@ -10,7 +10,7 @@ def query(model_name, input_text):
     if model_name == "Jukaboo/llama2-7b-jk-ft":
         endpoint_url =  "https://ceg49alq4qpkewtn.eu-west-1.aws.endpoints.huggingface.cloud"
         client = InferenceClient(endpoint_url , token=hugging_face_key) 
-        response = client.text_generation(input_text, details = True)
+        response = client.text_generation(input_text)
         return response
 
     else :
