@@ -11,6 +11,7 @@ def query(model_name, input_text):
         endpoint_url =  "https://ceg49alq4qpkewtn.eu-west-1.aws.endpoints.huggingface.cloud"
         client = InferenceClient(endpoint_url , token=hugging_face_key) 
         response = client.text_generation(input_text, details = True)
+        return response
 
     else :
         headers = {"Authorization": f"Bearer {hugging_face_key}"}
