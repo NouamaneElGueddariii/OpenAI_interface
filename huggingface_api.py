@@ -30,7 +30,7 @@ def query(model_name, input_text):
         return json.loads(response.content.decode("utf-8"))
 
 def run():
-    list_models = ["bert-base-uncased", "gpt2", "bert-base-multilingual-cased", "bert-large-cased","tiiuae/falcon-40b", "tiiuae/falcon-7b","Jukaboo/llama2-7b-jk-ft"]
+    list_models = ["bert-base-uncased", "gpt2", "bert-base-multilingual-cased", "bert-large-cased","tiiuae/falcon-40b", "tiiuae/falcon-7b","Jukaboo/llama2-7b-jk-ft","meta-llama/Llama-2-7b-chat-hf"]
     model_options = st.selectbox('Select a model:', list_models)
     input_text = st.text_area("Enter your prompt here!")
     send = st.button('SEND REQUEST!')
